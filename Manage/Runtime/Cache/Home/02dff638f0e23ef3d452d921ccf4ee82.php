@@ -9,13 +9,13 @@
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="/OnlineShop/Public/images/logo.gif" /></div>
-	<div class="help"><a href="../../index.html">返回前台页面</a></div>
+	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
+			<li class="current"><a href="index.html">首页</a></li>
+			<li><a href="user.html">用户</a></li>
+			<li><a href="product.html">商品</a></li>
+			<li><a href="order.html">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -48,14 +48,18 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>管理首页</h2>
-		<div id="welcome" class="manage">
+		<h2>提示信息</h2>
+		<div class="manage">
 			<div class="shadow">
 				<em class="corner lb"></em>
 				<em class="corner rt"></em>
 				<div class="box">
 					<div class="msg">
-						<p>欢迎回来</p>
+						<p>恭喜：操作成功！</p>
+						<p>正在进入首页...</p>
+						<script type="text/javascript">
+							setTimeout("location.href='/OnlineShop/manage.php/Home/User/showUser'", 1000);
+						</script>
 					</div>
 				</div>
 			</div>

@@ -1,16 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<include file="common:common_head"/>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台管理 - 易买网</title>
+    <link type="text/css" rel="stylesheet" href="/OnlineShop/Public/css/style.css" />
+    <script type="text/javascript" src="/OnlineShop/Public/scripts/function-manage.js"></script>
+</head>
 <body>
 <div id="header" class="wrap">
-	<div id="logo"><img src="__PUBLIC__/images/logo.gif" /></div>
+	<div id="logo"><img src="/OnlineShop/Public/images/logo.gif" /></div>
 	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li><a href="__APP__/Home/Index/index">首页</a></li>
-			<li><a href="__APP__/Home/User/showUser">用户</a></li>
-			<li><a href="__APP__/Home/Product/showProduct">商品</a></li>
-			<li class="current"><a href="__APP__/Home/Product/showOrder">订单</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
+			<li class="current"><a href="/OnlineShop/manage.php/Home/Product/showOrder">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -64,14 +69,14 @@
 					<td class="w1 c">张三丰</td>
 					<td>高老庄</td>
 					<td class="w1 c">发货</td>
-					<td class="w1 c"><a href="order_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+					<td class="w1 c"><a href="order-modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
 				<tr>
 					<td class="first w4 c">1</td>
 					<td class="w1 c">张三丰</td>
 					<td>花果山</td>
 					<td class="w1 c">审核通过</td>
-					<td class="w1 c"><a href="order_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+					<td class="w1 c"><a href="order-modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
 			</table>
 			<div class="pager">

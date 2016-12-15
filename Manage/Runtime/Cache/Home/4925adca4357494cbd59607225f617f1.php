@@ -13,9 +13,9 @@
 	<div class="navbar">
 		<ul class="clearfix">
 			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li class="current"><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
+			<li class="current"><a href="user.html">用户</a></li>
+			<li><a href="product.html">商品</a></li>
+			<li><a href="order.html">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -48,26 +48,61 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>用户管理</h2>
+		<h2>修改用户</h2>
 		<div class="manage">
-			<table class="list">
-				<tr>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>性别</th>
-					<th>Email</th>
-					<th>手机</th>
-					<th>操作</th>
-				</tr>
-				<?php if(is_array($users)): $i = 0; $__LIST__ = $users;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$user): $mod = ($i % 2 );++$i;?><tr>
-					 <td class="first w4 c"><?php echo ($user['user_id']); ?></td>
-					 <td class="w1 c"><?php echo ($user['user_realname']); ?></td>
-					 <td class="w2 c"><?php echo ($user['user_sex']); ?></td>
-					 <td><?php echo ($user['user_email']); ?></td>
-					 <td class="w4 c"><?php echo ($user['user_tel']); ?></td>
-					 <td class="w1 c"><a href="/OnlineShop/manage.php/Home/User/showModify/user_id/<?php echo ($user['user_id']); ?>">修改</a> <a href="/OnlineShop/manage.php/Home/User/deleteUser/user_id/<?php echo ($user['user_id']); ?>?confirm=javascript:Delete()">删除</a></td>
-				    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-			</table>
+			<form action="/OnlineShop/manage.php/Home/User/modifyUser" method="post">
+				<table class="form">
+					<tr>
+						<td class="field">用户名：</td>
+						<td><input type="text" class="text" name="user_id" value="<?php echo ($user_info['user_id']); ?>" readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td class="field">姓名：</td>
+						<td><input type="text" class="text" name="user_realname" value="<?php echo ($user_info['user_realname']); ?>" /></td>
+					</tr>
+					<tr>
+						<td class="field">密码：</td>
+						<td><input type="text" class="text" name="user_password" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">性别：</td>
+						<td><input type="radio" name="user_sex" value="1" checked="checked" />男 <input type="radio" name="user_sex" value="1" />女</td>
+					</tr>
+					<tr>
+						<td class="field">出生日期：</td>
+						<td>
+							<select name="birthyear">
+								<option value="2000">2000</option>
+								<option value="1999" selected="selected">1999</option>
+							</select>年
+							<select name="birthmonth">
+								<option value="12">12</option>
+								<option value="11" selected="selected">11</option>
+							</select>月
+							<select name="birthday">
+								<option value="2">2</option>
+								<option value="1" selected="selected">1</option>
+							</select>日
+						</td>
+					</tr>
+					<tr>
+						<td class="field">手机号码：</td>
+						<td><input type="text" class="text" name="user_tel" value="<?php echo ($user_info['user_tel']); ?>" /></td>
+					</tr>
+					<tr>
+						<td class="field">送货地址：</td>
+						<td><input type="text" class="text" name="user_address" value="<?php echo ($user_info['user_address']); ?>" /></td>
+					</tr>
+					<tr>
+						<td class="field">头像：</td>
+						<td><input type="file" class="text" name="photo" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="更新" /></label></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 	<div class="clear"></div>

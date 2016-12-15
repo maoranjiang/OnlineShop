@@ -9,12 +9,12 @@
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="/OnlineShop/Public/images/logo.gif" /></div>
-	<div class="help"><a href="../../index.html">返回前台页面</a></div>
+	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
+			<li class="current"><a href="user.html">用户</a></li>
+			<li><a href="product.html">商品</a></li>
 			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
@@ -48,17 +48,62 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>管理首页</h2>
-		<div id="welcome" class="manage">
-			<div class="shadow">
-				<em class="corner lb"></em>
-				<em class="corner rt"></em>
-				<div class="box">
-					<div class="msg">
-						<p>欢迎回来</p>
-					</div>
-				</div>
-			</div>
+		<h2>新增用户</h2>
+		<div class="manage">
+			<form action="/OnlineShop/manage.php/Home/User/addUser" method="post">
+				<table class="form">
+					<tr>
+						<td class="field">用户名：</td>
+						<td><input type="text" class="text" name="user_id" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">姓名：</td>
+						<td><input type="text" class="text" name="user_realname" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">密码：</td>
+						<td><input type="text" class="text" name="user_password" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">性别：</td>
+						<td><input type="radio" name="user_sex" value="male" checked="checked" />男 <input type="radio" name="user_sex" value="female" />女</td>
+					</tr>
+					<tr>
+						<td class="field">出生日期：</td>
+						<td>
+							<select name="birthyear">
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+							</select>年
+							<select name="birthmonth">
+								<option value="12">12</option>
+								<option value="11">11</option>
+							</select>月
+							<select name="birthday">
+								<option value="2">2</option>
+								<option value="1">1</option>
+							</select>日
+						</td>
+					</tr>
+					<tr>
+						<td class="field">手机号码：</td>
+						<td><input type="text" class="text" name="user_tel" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">送货地址：</td>
+						<td><input type="text" class="text" name="user_address" value="" /></td>
+					</tr>
+					<tr>
+						<td class="field">头像：</td>
+						<td><input type="file" class="text" name="photo" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="添加" /></label></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 	<div class="clear"></div>

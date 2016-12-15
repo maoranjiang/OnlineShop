@@ -1,7 +1,10 @@
 // JavaScript Document
-function Delete(id)
+function Delete()
 {
 	if(confirm("确定要删除吗？")) {
-		location.href = "user-delete.html?id=" + id;
+		//location.href="../Manage/Home/User/deleteUser/user_id/{$user['user_id']}"
+		return true;
 	}
+	else
+		return false;
 }

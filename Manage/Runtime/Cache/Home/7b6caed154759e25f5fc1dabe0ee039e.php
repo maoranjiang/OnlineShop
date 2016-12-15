@@ -9,12 +9,12 @@
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="/OnlineShop/Public/images/logo.gif" /></div>
-	<div class="help"><a href="../../index.html">返回前台页面</a></div>
+	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
 			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
+			<li class="current"><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
 			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
@@ -48,17 +48,25 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>管理首页</h2>
-		<div id="welcome" class="manage">
-			<div class="shadow">
-				<em class="corner lb"></em>
-				<em class="corner rt"></em>
-				<div class="box">
-					<div class="msg">
-						<p>欢迎回来</p>
-					</div>
-				</div>
-			</div>
+		<h2>商品管理</h2>
+		<div class="manage">
+			<table class="list">
+				<tr>
+					<th>ID</th>
+					<th>商品名称</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td class="first w4 c">1</td>
+					<td class="thumb"><img src="/OnlineShop/Public/images/product/0_tiny.gif" /><a href="../product-view.html" target="_blank">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+				</tr>
+				<tr>
+					<td class="first w4 c">1</td>
+					<td class="thumb"><img src="/OnlineShop/Public/images/product/0_tiny.gif" /><a href="../product-view.html" target="_blank">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div class="clear"></div>

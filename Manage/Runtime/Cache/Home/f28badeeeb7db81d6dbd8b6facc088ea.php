@@ -9,13 +9,13 @@
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="/OnlineShop/Public/images/logo.gif" /></div>
-	<div class="help"><a href="../../index.html">返回前台页面</a></div>
+	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
+			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
+			<li><a href="user.html">用户</a></li>
+			<li class="current"><a href="product.html">商品</a></li>
+			<li><a href="order.html">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -48,17 +48,34 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>管理首页</h2>
-		<div id="welcome" class="manage">
-			<div class="shadow">
-				<em class="corner lb"></em>
-				<em class="corner rt"></em>
-				<div class="box">
-					<div class="msg">
-						<p>欢迎回来</p>
-					</div>
-				</div>
-			</div>
+		<h2>分类管理</h2>
+		<div class="manage">
+			<table class="list">
+				  <tr>
+					<th>ID</th>
+					<th>大类</th>
+					  <th></th>
+					<th>操作</th>
+				  </tr>
+				<?php if(is_array($class_father_list)): $i = 0; $__LIST__ = $class_father_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$class_father): $mod = ($i % 2 );++$i;?><tr>
+					<td class="first w4 c"><?php echo ($class_father['class_father_id']); ?></td>
+					<td><?php echo ($class_father['class_father_name']); ?></td>
+					  <td></td>
+					<td class="w1 c"><a href="productClass_modify.html">修改</a> <a href="/OnlineShop/manage.php/Home/Product/deleteClass/class_id/<?php echo ($class_father['class_father_id']); ?>">删除</a></td>
+				  </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				<tr>
+					<th>ID</th>
+					<th>分类名称</th>
+					<th>大类名称</th>
+					<th>操作</th>
+				</tr>
+				<?php if(is_array($goods_class_list)): $i = 0; $__LIST__ = $goods_class_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_class): $mod = ($i % 2 );++$i;?><tr>
+					<td class="first w4 c"><?php echo ($goods_class['goods_class_id']); ?></td>
+					<td class="childClass"><?php echo ($goods_class['class_name']); ?></td>
+					  <td class="childClass"><?php echo ($goods_class['class_father_id']); ?></td>
+					<td class="w1 c"><a href="">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+				  </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			</table>
 		</div>
 	</div>
 	<div class="clear"></div>
