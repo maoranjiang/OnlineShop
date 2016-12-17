@@ -44,10 +44,45 @@ class ProductController extends Controller{
             $this->display("manage_result");
     }
 
+    public function showAddProduct()
+    {
+        $parentId=M('goods_class');
+        $condition['type']=0;
+        $parent_list = $parentId->where($condition) ->select();
+//        dump($parent_list);
+//        die;
+        $this->assign("cate1",$parent_list);
+        //$this->assign("cate2",$class_list);
+        $this->display(product_add);
+
+    }
+    public function cate()
+    {
+        header("Content-Type:text/html; charset=utf-8");
+        $class=M('goods_class');
+        $result = array();
+        $cate =$_POST['type'];
+//        $test=12;
+//        dump($cate);
+//        die;
+        //$result = $class->where(array('class_father_id'=> $cate))->field('goods_class_id,class_name')->select();
+        $result = $class->where(true)->field('goods_class_id,class_name')->select();
+        $this->ajaxReturn($result,"JSON");
+//        dump($result);
+//        die;
+        echo json_encode($result);
+    }
+
     public function addProduct()
     {
         $goods_db = M('goods');
-
-
+        $goods_info['goods_name'] = $_POST['productName'];
+        $goods_info['class_father_id'] = $_POST['parentId'];
+        $goods_info['goods_image'] = $_POST['photo'];
+        $goods_info['goods_unit_price'] = $_POST['productPrice'];
+        $goods_info['goods_stock'] = $_POST['stock'];
+        $goods_info['goods_intro'] = $_POST['introduction'];
+        $goods_info['goods_name'] = $_POST['productName'];
+        $goods_info['goods_name'] = $_POST['productName'];
     }
 }

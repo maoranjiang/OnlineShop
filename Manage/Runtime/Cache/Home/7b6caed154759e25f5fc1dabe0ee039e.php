@@ -37,7 +37,7 @@
         <dd><em><a href="/OnlineShop/manage.php/Home/User/showAdd">新增</a></em><a href="/OnlineShop/manage.php/Home/User/showUser">用户管理</a></dd>
         <dt>商品信息</dt>
         <dd><em><a href="/OnlineShop/manage.php/Home/Product/showProductClassAdd">新增</a></em><a href="/OnlineShop/manage.php/Home/Product/showProductClass">分类管理</a></dd>
-        <dd><em><a href="product-add.html">新增</a></em><a href="product.html">商品管理</a></dd>
+        <dd><em><a href="/OnlineShop/manage.php/Home/Product/showAddProduct">新增</a></em><a href="product.html">商品管理</a></dd>
         <dt>订单管理</dt>
         <dd><a href="order.html">订单管理</a></dd>
         <dt>留言管理</dt>
