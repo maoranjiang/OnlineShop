@@ -71,6 +71,7 @@ class ProductController extends Controller{
 //        dump($result);
 //        die;
         echo json_encode($result);
+        //test
     }
 
     public function addProduct()
