@@ -37,16 +37,13 @@
 					<th>商品名称</th>
 					<th>操作</th>
 				</tr>
+				<volist name="list" id="vo">
 				<tr>
 					<td class="first w4 c">1</td>
-					<td class="thumb"><img src="__PUBLIC__/images/product/0_tiny.gif" /><a href="../product-view.html" target="_blank">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+					<td class="thumb"><img src="__PUBLIC__/images/product/{$vo.goods_image}" /><a href="../product-view.html" target="_blank">{$vo.goods_name}</a></td>
 					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
-				<tr>
-					<td class="first w4 c">1</td>
-					<td class="thumb"><img src="__PUBLIC__/images/product/0_tiny.gif" /><a href="../product-view.html" target="_blank">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
-					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr>
+					</volist>
 			</table>
 		</div>
 	</div>

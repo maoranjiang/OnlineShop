@@ -1,14 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>后台管理 - 易买网</title>
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<script type="text/javascript" src="../scripts/function-manage.js"></script>
-</head>
+<include file="common:common_head"/>
 <body>
 <div id="header" class="wrap">
-	<div id="logo"><img src="../images/logo.gif" /></div>
+	<div id="logo"><img src="__PUBLIC__/images/logo.gif" /></div>
 	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
@@ -36,21 +31,22 @@
 	<div class="main">
 		<h2>添加分类</h2>
 		<div class="manage">
-			<form action="manage-result.html">
+			<form action="__APP__/Home/Product/addClass" method="post">
 				<table class="form">
 					<tr>
 						<td class="field">父分类：</td>
 						<td>
 							<select name="parentId">
-								<option value="0" selected="selected">根栏目</option>
-								<option value="1">电器</option>
-								<option value="2">衣服</option>
+								<option value=0 selected="selected">根栏目</option>
+								<volist name="list" id="vo">
+									<option value={$vo.goods_class_id}>{$vo.class_name}</option>
+								</volist>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td class="field">分类名称：</td>
-						<td><input type="text" class="text" name="className" value="电脑" /></td>
+						<td><input type="text" class="text" name="className" value="" /></td>
 					</tr>
 					<tr>
 						<td></td>

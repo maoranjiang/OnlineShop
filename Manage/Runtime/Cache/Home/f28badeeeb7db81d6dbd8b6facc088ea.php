@@ -13,9 +13,9 @@
 	<div class="navbar">
 		<ul class="clearfix">
 			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
+			<li><a href="user.html">用户</a></li>
+			<li class="current"><a href="product.html">商品</a></li>
+			<li><a href="order.html">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -48,19 +48,28 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>商品管理</h2>
+		<h2>分类管理</h2>
 		<div class="manage">
 			<table class="list">
-				<tr>
+				  <tr>
 					<th>ID</th>
-					<th>商品名称</th>
+					<th>大类</th>
+					  <th>小类</th>
 					<th>操作</th>
-				</tr>
-				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-					<td class="first w4 c">1</td>
-					<td class="thumb"><img src="/OnlineShop/Public/images/product/<?php echo ($vo["goods_image"]); ?>" /><a href="../product-view.html" target="_blank"><?php echo ($vo["goods_name"]); ?></a></td>
-					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				  </tr>
+				<?php if(is_array($list[0])): $i = 0; $__LIST__ = $list[0];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+					<td class="first w4 c"><?php echo ($vo["goods_class_id"]); ?></td>
+					<td class="first w4 c"><?php echo ($vo["class_name"]); ?></td>
+						<td class="w1 c"></td>
+						<td class="w1 c"><a href="productClass_modify.html">修改</a> <a href="/OnlineShop/manage.php/Home/Product/deleteClass/class_id/<?php echo ($vo['goods_class_id']); ?>">删除</a></td>
+
+					<?php if(is_array($list[$vo['goods_class_id']])): $i = 0; $__LIST__ = $list[$vo['goods_class_id']];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><tr>
+					<td class="w4 c"><?php echo ($vo2["goods_class_id"]); ?></td>
+					<td class="w4 c"></td>
+						<td class="w1 c"><?php echo ($vo2["class_name"]); ?></td>
+						<td class="w1 c"><a href="productClass_modify.html">修改</a> <a href="/OnlineShop/manage.php/Home/Product/deleteClass/class_id/<?php echo ($vo2['goods_class_id']); ?>">删除</a></td>
+					    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
 			</table>
 		</div>
 	</div>

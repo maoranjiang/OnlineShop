@@ -50,55 +50,23 @@
 	<div class="main">
 		<h2>添加商品</h2>
 		<div class="manage">
-			<form action="manage-result.html">
+			<form action="/OnlineShop/manage.php/Home/Product/addProduct" method="post">
 				<table class="form">
 					<tr>
 						<td class="field">商品名称：</td>
-						<td><input type="text" class="text" name="productName" /></td>
+						<td><input type="text" class="text" name="goodsName" /></td>
 					</tr>
 					<tr>
 						<td class="field">所属分类：</td>
 						<td>
-                            <select name="parentID" size="1" id="type">
-								<option>请选择大类</option>
-								<?php if(is_array($cate1)): foreach($cate1 as $key=>$v): ?><option value="<?php echo ($v['goods_class_id']); ?>"><?php echo ($v['class_name']); ?></option><?php endforeach; endif; ?>
-							</select>
-                            <select name="lable" size="1" id="lables">
+							<script type="text/javascript" src="/OnlineShop/Public/scripts/jquery.js"></script>
+							<script type="text/javascript" src="/OnlineShop/Public/scripts/region.js"></script>
+                            <select name="province" id="province" onchange="loadRegion('province',1,'city','<?php echo U('Ajax/getRegion');?>');">
+                                <option value=0>大类</option><?php if(is_array($province)): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["goods_class_id"]); ?>" ><?php echo ($vo["class_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
-							<script type="text/javascript">
-								<!--//<![CDATA[
-                                $('#type').click(function(){
-                                            $(this).change(function(){
-                                                var objectModel = {};
-                                                var   value = $(this).val();
-                                                var   type = $(this).attr('id');
-                                                objectModel[type] =value;
-                                                $.ajax({
-                                                    cache:false,
-                                                    type:"POST",
-                                                    url:"/OnlineShop/manage.php/home/product/cate",
-                                                    dataType:"json",
-                                                    data:objectModel,
-                                                    timeout:30000,
-                                                    error:function(){
-                                                        alert(site.web+"lable");
-                                                    },
-                                                    success:function(data){
-                                                        $("#lables").empty();
-                                                        var count = data.length;
-                                                        var i = 0;
-                                                        var b="";
-                                                        for(i=0;i<count;i++){
-                                                            b+="<option value='"+data[i].goods_class_id+"'>"+data[i].class_name+"</option>";
-                                                        }
-                                                        $("#lables").append(b);
-                                                    }
-                                                });
-                                            });
-                                        }
-                                );
-								//]]>-->
-							</script>
+                            <select name="city" id="city">
+                                <option value="0">小类</option>
+                            </select>
 						</td>
 					</tr>
 					<tr>
@@ -110,16 +78,8 @@
 						<td><input type="text" class="text tiny" name="productPrice" /> 元</td>
 					</tr>
 					<tr>
-						<td class="field">品牌：</td>
-						<td><input type="text" class="text" name="productName" /></td>
-					</tr>
-					<tr>
 						<td class="field">库存：</td>
 						<td><input type="text" class="text tiny" name="stock" /></td>
-					</tr>
-					<tr>
-						<td class="field">条码号：</td>
-						<td><input type="text" class="text" name="productName" /></td>
 					</tr>
 					<tr>
 						<td class="field">介绍：</td>

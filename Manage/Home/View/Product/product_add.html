@@ -31,21 +31,23 @@
 	<div class="main">
 		<h2>添加商品</h2>
 		<div class="manage">
-			<form action="manage-result.html">
+			<form action="__APP__/Home/Product/addProduct" method="post">
 				<table class="form">
 					<tr>
 						<td class="field">商品名称：</td>
-						<td><input type="text" class="text" name="productName" /></td>
+						<td><input type="text" class="text" name="goodsName" /></td>
 					</tr>
 					<tr>
 						<td class="field">所属分类：</td>
 						<td>
-                            <select name="province" id="province" onchange="loadRegion('province',2,'city','{:U('Ajax/getRegion')}');">
-                                <option value="0" selected>省份/直辖市</option><volist name="province" id="vo">
-                                <option value="{$vo.id}" >{$vo.name}</option></volist>
+							<script type="text/javascript" src="__PUBLIC__/scripts/jquery.js"></script>
+							<script type="text/javascript" src="__PUBLIC__/scripts/region.js"></script>
+                            <select name="province" id="province" onchange="loadRegion('province',1,'city','{:U('Ajax/getRegion')}');">
+                                <option value=0>大类</option><volist name="province" id="vo">
+                                <option value="{$vo.goods_class_id}" >{$vo.class_name}</option></volist>
                             </select>
-                            <select name="city" id="city"  onchange="loadRegion('city',3,'town','{:U('Ajax/getRegion')}');">
-                                <option value="0">市/县</option>
+                            <select name="city" id="city">
+                                <option value="0">小类</option>
                             </select>
 						</td>
 					</tr>
@@ -58,16 +60,8 @@
 						<td><input type="text" class="text tiny" name="productPrice" /> 元</td>
 					</tr>
 					<tr>
-						<td class="field">品牌：</td>
-						<td><input type="text" class="text" name="productName" /></td>
-					</tr>
-					<tr>
 						<td class="field">库存：</td>
 						<td><input type="text" class="text tiny" name="stock" /></td>
-					</tr>
-					<tr>
-						<td class="field">条码号：</td>
-						<td><input type="text" class="text" name="productName" /></td>
 					</tr>
 					<tr>
 						<td class="field">介绍：</td>

@@ -12,10 +12,10 @@
 	<div class="help"><a href="../index.html">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li><a href="/OnlineShop/manage.php/Home/Index/index">首页</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/User/showUser">用户</a></li>
-			<li class="current"><a href="/OnlineShop/manage.php/Home/Product/showProduct">商品</a></li>
-			<li><a href="/OnlineShop/manage.php/Home/Order/showOrder">订单</a></li>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="user.html">用户</a></li>
+			<li class="current"><a href="product.html">商品</a></li>
+			<li><a href="order.html">订单</a></li>
 			<li><a href="guestbook.html">留言</a></li>
 			<li><a href="news.html">新闻</a></li>
 		</ul>
@@ -48,20 +48,29 @@
 </div>
 	</div>
 	<div class="main">
-		<h2>商品管理</h2>
+		<h2>添加分类</h2>
 		<div class="manage">
-			<table class="list">
-				<tr>
-					<th>ID</th>
-					<th>商品名称</th>
-					<th>操作</th>
-				</tr>
-				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-					<td class="first w4 c">1</td>
-					<td class="thumb"><img src="/OnlineShop/Public/images/product/<?php echo ($vo["goods_image"]); ?>" /><a href="../product-view.html" target="_blank"><?php echo ($vo["goods_name"]); ?></a></td>
-					<td class="w1 c"><a href="product_modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-			</table>
+			<form action="/OnlineShop/manage.php/Home/Product/addClass" method="post">
+				<table class="form">
+					<tr>
+						<td class="field">父分类：</td>
+						<td>
+							<select name="parentId">
+								<option value=0 selected="selected">根栏目</option>
+								<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value=<?php echo ($vo["goods_class_id"]); ?>><?php echo ($vo["class_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="field">分类名称：</td>
+						<td><input type="text" class="text" name="className" value="" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="更新" /></label></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 	<div class="clear"></div>
