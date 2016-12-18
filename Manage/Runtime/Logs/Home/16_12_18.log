@@ -6564,3 +6564,35 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001033s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001156s ]
 
+[ 2016-12-18T18:13:32+08:00 ] ::1 /OnlineShop/manage.php/Home/Product/showAddProduct
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001457s ]
+SQL: SHOW COLUMNS FROM `think_goods_class` [ RunTime:0.0099s ]
+SQL: SELECT * FROM `think_goods_class` WHERE `type` = 0  [ RunTime:0.0007s ]
+NOTIC: [8] Use of undefined constant product_add - assumed 'product_add' D:\software\wamp\www\OnlineShop\Manage\Home\Controller\ProductController.class.php 第 88 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000151s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000495s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018233s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018425s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001115s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001230s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001124s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001232s ]
+
+[ 2016-12-18T18:13:41+08:00 ] ::1 /OnlineShop/manage.php/Home/Product/user.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003895s ]
+ERR: 非法操作:user
+
